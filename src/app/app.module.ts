@@ -13,6 +13,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {MatFormFieldModule } from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import {MatTableDataSource} from '@angular/material/table';
 //import { MatLabelModule } from '@angular/material/label';
 
 @NgModule({
@@ -30,7 +31,8 @@ import { MatInputModule } from '@angular/material/input';
     NoopAnimationsModule,
     MatFormFieldModule,
     MatIconModule,
-    MatInputModule
+    MatInputModule,
+    MatTableDataSource
   ],
   bootstrap: [AppComponent, HeaderComponent]
 })

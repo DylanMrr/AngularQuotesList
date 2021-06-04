@@ -11,12 +11,14 @@ export class HttpService {
 
   constructor(private http: HttpClient) { }
 
-  getData(): Observable<Quote[]>{
-    return this.http.get("https://www.breakingbadapi.com/api/quotes")
+  async getData(): Promise<Quote[]>{
+    var data = await this.http.get<Quote[]>("https://www.breakingbadapi.com/api/quotes").toPromise();
+    return data;
+    /*return this.http.get("https://www.breakingbadapi.com/api/quotes")
       .pipe(map((data: any) =>{
         return data.map(function(quote: any): Quote{
           return new Quote(quote.quote_id, quote.quote, quote.author, quote.series);
         });
-      }));
+      }));*/
   }
 }

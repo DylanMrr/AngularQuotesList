@@ -16,6 +16,8 @@ export class ContentComponent implements OnInit {
   constructor(private readonly httpService: HttpService) { }
 
   ngOnInit(): void {
-    this.httpService.getData().subscribe((data: Quote[]) => this.quotes = data);
+    this.httpService.getData()
+      .then((data: Quote[]) => this.quotes = data);
+    //this.httpService.getData().subscribe((data: Quote[]) => this.quotes = data);
   }
 }

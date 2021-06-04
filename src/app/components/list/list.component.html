@@ -4,15 +4,10 @@
             <tr>
                 <th>Список</th>
                 <th>
-                    <form>
-                        <mat-form-field  class="example-form-field" appearance="legacy">
-                            <mat-label>Введите цитату</mat-label>
-                            <input matInput type ="text" [(ngModel)]="searchValue" name="searchInput">
-                            <!--<button *ngIf="searchValue" matSuffix mat-icon-button aria-label="Clear" (click)="searchValue=''">
-                              <mat-icon>close</mat-icon>
-                            </button>-->
-                        </mat-form-field>
-                    </form>
+                    <mat-form-field>
+                        <mat-label>Введите цитату</mat-label>
+                        <input matInput (keyUp)="onSearchValueChange($event)" #input>
+                    </mat-form-field>
                 </th>
             </tr>
         </thead>
@@ -20,7 +15,7 @@
 </div>
 
 <div class="panel">
-    <table class="table table-striped" *ngFor="let quote of quotes">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" *ngFor="let quote of quotes">
         <app-item [quote]="quote"></app-item>
     </table>
 </div>
